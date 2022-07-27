@@ -38,4 +38,19 @@ router.post("/", (req, res) => {
   }
 });
 
+//gets one user
+router.get("/:id", (req, res) => {
+  try {
+    con.query(
+      `SELECT * FROM users where user_id = ${req.params.id}`,
+      (err, result) => {
+        if (err) throw err;
+        res.send(result);
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
 module.exports = router;

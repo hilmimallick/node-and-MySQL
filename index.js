@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
   res.json({ msg: "Welcome" });
 });
 
+app.get("/products", (req, res) => {
+  res.json({ msg: "Welcome products" });
+});
+
 app.use("/users", userRoute);
 
 app.listen(app.get("port"), () => {
