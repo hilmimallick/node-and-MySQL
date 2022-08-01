@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   try {
     con.query("SELECT * FROM users", (err, result) => {
       if (err) throw err;
-      res.send(result);
+      res.json(result);
     });
   } catch (error) {
     console.log(error);
