@@ -84,6 +84,6 @@ app.listen(app.get("port"), () => {
   console.log("Press Ctrl+C to exit server");
 });
 app.use(express.static("public"));
-app.get("/", function (req, res) {
+app.get("/login", function (req, res) {
   res.sendFile(_dirname + "/" + "login.html");
 });
