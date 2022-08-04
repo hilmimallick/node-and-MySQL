@@ -45,10 +45,10 @@ app.get("/", function (req, res) {
   res.sendFile(_dirname + "/" + "index.html");
 });
 
-app.get("/", function (req, res) {
+app.get("/login", function (req, res) {
   res.sendFile(_dirname + "/" + "login.html");
 });
 
-app.get("/", function (req, res) {
+app.get("/products", function (req, res) {
   res.sendFile(_dirname + "/" + "Products.html");
 });
