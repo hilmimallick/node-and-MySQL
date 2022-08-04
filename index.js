@@ -66,7 +66,7 @@ app.use(cors()); // Dont let local development give errors
 
 app.use(express.static("public"));
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/" + "index.html");
+  res.sendFile(_dirname + "/" + "index.html");
 });
 const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
