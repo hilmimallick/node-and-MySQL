@@ -74,7 +74,7 @@ const categoriesRouter = require("./routes/categoriesRouter");
 const order_detailsRouter = require("./routes/order_detailsRouter");
 const product_categoriesRouter = require("./routes/product_categoriesRouter");
 app.use("/users", userRouter);
-app.use("/product", productRouter);
+app.use("/products", productRouter);
 app.use("/orders", ordersRouter);
 app.use("/categories", categoriesRouter);
 app.use("/order_details", order_detailsRouter);
