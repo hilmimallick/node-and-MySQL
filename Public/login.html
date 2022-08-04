@@ -14,7 +14,6 @@
     </form>
 
     <script>
-      let email = document.querySelector("#email").value;
       async function UserLogin(e) {
         e.preventDefault();
         const response = await fetch("http://localhost:6969/users/login", {

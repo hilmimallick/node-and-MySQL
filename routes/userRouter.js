@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
 });
 
 //gets one user
-router.get("/:id", (req, res) => {
+router.get("/:id", middleware, (req, res) => {
   try {
     con.query(
       `SELECT * FROM users where user_id = ${req.params.id}`,

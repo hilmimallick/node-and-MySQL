@@ -1,14 +1,14 @@
 const express = require("express"); // Used to set up a server
 const cors = require("cors"); // Used to prevent errors when working locally
+const bodyParser = require("body-parser");
 
 const app = express(); // Initialize express as an app variable
 app.set("port", process.env.PORT || 6969); // Set the port
 app.use(express.json()); // Enable the server to handle JSON requests
 app.use(cors()); // Dont let local development give errors
-
-app.get("/", (req, res) => {
-  res.json({ msg: "Welcome" });
-});
+app.use(express.static("public"));
+app.use(bodyParser);
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //for user
 const userRoute = require("./routes/userRouter");
@@ -34,21 +34,23 @@ app.use("/order_details", order_detailsRoute);
 const product_categoriesRoute = require("./routes/product_categoriesRouter");
 app.use("/product_categories", product_categoriesRoute);
 
+app.get("/", (req, res) => {
+  res.sendFile(_dirname + "/" + "index.html");
+});
+
 app.listen(app.get("port"), () => {
   console.log(`Listening for calls on port ${app.get("port")}`);
   console.log("Press Ctrl+C to exit server");
 });
 
-app.use(express.static("public"));
+// app.get("/", function (req, res) {
+//   res.sendFile(_dirname + "/" + "index.html");
+// });
 
-app.get("/", function (req, res) {
-  res.sendFile(_dirname + "/" + "index.html");
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(_dirname + "/" + "login.html");
+// });
 
-app.get("/login", function (req, res) {
-  res.sendFile(_dirname + "/" + "login.html");
-});
-
-app.get("/products", function (req, res) {
-  res.sendFile(_dirname + "/" + "Products.html");
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(_dirname + "/" + "Products.html");
+// });
